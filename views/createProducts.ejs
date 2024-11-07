@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/product.css" />
+    <title>Document</title>
+  </head>
+  <body>
+  
+     <!-- Success message -->
+     <% if (successMessage && successMessage.length > 0) { %>
+      <div class="col-sm-12">
+        <div class="alert fade alert-simple alert-primary alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light brk-library-rendered rendered show" role="alert" data-brk-library="component__alert">
+          <button type="button" class="close font__size-18" data-dismiss="alert">
+                  <span  aria-hidden="true"><i class="fa fa-times alertprimary"></i></span>
+                  <span class="sr-only">Close</span>
+                </button>
+          <i class="start-icon fa fa-thumbs-up faa-bounce animated"></i>
+          <strong class="font__weight-semibold">Well Done</strong><%= successMessage%>
+        </div>
+    
+      </div>
+    <% } %>
+    
+    <!-- Error message -->
+    <% if (errorMessage && errorMessage.length > 0) { %>
+      
+      <div class="alert fade alert-simple alert-danger alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light brk-library-rendered rendered show" role="alert" data-brk-library="component__alert">
+        <button type="button" class="close font__size-18" data-dismiss="alert">
+                <span aria-hidden="true">
+                  <i class="fa fa-times danger "></i>
+                </span>
+                <span class="sr-only">Close</span>
+              </button>
+        <i class="start-icon far fa-times-circle faa-pulse animated"></i>
+        <strong class="font__weight-semibold">Oh snap!</strong> <%=errorMessage%>
+      </div>
+    </div>
+      <% } %>
+
+    <!-- Product -->
+    <div class="mainscreen">
+      <!-- <img src="https://image.freepik.com/free-vector/purple-background-with-neon-frame_52683-34124.jpg"  class="bgimg " alt="">-->
+      <div class="card">
+        <div class="leftside">
+          <img
+            src="https://i.pinimg.com/originals/18/9d/dc/189ddc1221d9c1c779dda4ad37a35fa1.png"
+            class="product"
+            alt="Shoes"
+          />
+        </div>
+        <div class="rightside">
+          <form action="/product/create" method="post" enctype="multipart/form-data">
+            <h1>Add your product details</h1>
+            <p>Product Name</p>
+            <input type="text" class="inputbox" name="name" required />
+            <p>Image</p>
+            <input
+              type="file"
+              class="inputbox"
+              name="image"
+              id="card_number"
+              required
+            />
+
+            <p>Brand</p>
+            <input
+              type="text"
+              class="inputbox"
+              name="brand"
+              id="card_number"
+              required
+            />
+            <div class="expcvv">
+              <p class="expcvv_text">price</p>
+              <input
+                type="number"
+                class="inputbox"
+                name="price"
+                id="exp_date"
+                required
+              />
+
+              <p class="expcvv_text2">Discprice</p>
+              <input
+                type="number"
+                class="inputbox"
+                name="discountprice"
+                id="cvv"
+                required
+              />
+             
+            </div>
+            <p class="expcvv_text2">bgcolor</p>
+            <input
+              type="text"
+              class="inputbox"
+              name="bgcolor"
+              id="cvv"
+              required
+            />
+            <p class="expcvv_text2">panelcolor</p>
+            <input
+              type="text"
+              class="inputbox"
+              name="panelcolor"
+              id="cvv"
+              required
+            />
+            <p class="expcvv_text2">textcolor</p>
+            <input
+              type="text"
+              class="inputbox"
+              name="textcolor"
+              id="cvv"
+              required
+            />
+            <p></p>
+            <button type="submit" class="button">CheckOut</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AB-Store</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="wrapper">
+        <div class="logo">
+          <a href="#">AB STORE <i class="fa-solid fa-store"></i></a>
+        </div>
+        <input type="radio" name="slider" id="menu-btn" />
+        <input type="radio" name="slider" id="close-btn" />
+        <ul class="nav-links">
+          <label for="close-btn" class="btn close-btn"
+            ><i class="fas fa-times"></i
+          ></label>
+          <li><a href="#">Home</a></li>
+          <li><a href="/index/shop">About</a></li>
+      
+           <li><a href="/index/register">sign Up</a></li>
+           <li><a href="/index/login">Login</a></li>
+           <li><a href="#">Feedback</a></li>
+        </ul>
+        <label for="menu-btn" class="btn menu-btn"
+          ><i class="fas fa-bars"></i
+        ></label>
+      </div>
+    </nav>
+
+    <div class="body-text">
+      <div class="title">E-Commerce Store</div>
+      <div class="sub-title" id="title"></div>
+    </div>
+
+    <!-- Login and sign in -->
+    <div class="container">
+      <div>
+        <button class="log"><a href="/index/login">Login</a></button>
+        <a href="/index/register"> <button class="reg">Sign up</button></a>
+      </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>

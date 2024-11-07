@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wishlist</title>
+    <link rel="stylesheet" href="/css/like.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/side.css" />
+    <!----===== Boxicons CSS ===== -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Nav > -->
+    <nav class="sidebar close">
+      <header>
+        <div class="image-text">
+          <span class="image">
+            <img src="logo.png" alt="" />
+          </span>
+
+          <div class="text logo-text">
+            <span class="name">AB Store</span>
+            <span class="profession">Buy what you want</span>
+          </div>
+        </div>
+
+        <i class="bx bx-chevron-right toggle"></i>
+      </header>
+
+      <div class="menu-bar">
+        <div class="menu">
+          <li class="search-box">
+            <i class="bx bx-search icon"></i>
+            <input type="text" placeholder="Search Products..." />
+          </li>
+
+          <ul class="menu-links">
+            <li class="nav-link">
+              <a href="/index/shop">
+                <i class="bx bx-home-alt icon"></i>
+                <span class="text nav-text">Products</span>
+              </a>
+            </li>
+
+            <li class="nav-link">
+              <a href="/index/cart">
+                <i class="bx bx-bar-chart-alt-2 icon"></i>
+                <span class="text nav-text">Cart</span>
+              </a>
+            </li>
+
+            <li class="nav-link">
+              <a href="/index/like">
+                <i class="bx bx-heart icon"></i>
+                <span class="text nav-text">Likes</span>
+              </a>
+            </li>
+
+            <li class="nav-link">
+              <a href="#">
+                <i class="bx bx-wallet icon"></i>
+                <span class="text nav-text">Wallets</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bottom-content">
+          <li class="">
+            <a href="/user/logout">
+              <i class="bx bx-log-out icon"></i>
+              <span class="text nav-text">Logout</span>
+            </a>
+          </li>
+
+          <li class="mode">
+            <div class="sun-moon">
+              <i class="bx bx-moon icon moon"></i>
+              <i class="bx bx-sun icon sun"></i>
+            </div>
+            <span class="mode-text text">Dark mode</span>
+
+            <div class="toggle-switch">
+              <span class="switch"></span>
+            </div>
+          </li>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Likes -->
+    <section class="section-products left">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-md-8 col-lg-6">
+            <div class="header">
+              <h2>Wishlist Products</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Single Product -->
+          <div class="col-md-6 col-lg-4 col-xl-3">
+            <% if(userLikes){ %> <% userLikes.forEach(function(item){ %>
+            <div id="product-1" class="single-product">
+              <div class="part-1" style="background-color: <%=item.bgcolor%>">
+                <img
+              src="data:image/png;base64,<%= Buffer.from(item.image).toString('base64') %>"
+                <h1><%=item.name%></h1>
+              </div>
+              <div class="part-2">
+                <h3 class="product-title">
+                  <%=item.name %>
+                  <blockquote><%=item.brand%></blockquote>
+                </h3>
+                <h4 class="product-old-price">$<%=item.price%></h4>
+                <h4 class="product-price">$<%=item.discountprice%></h4>
+                <h4 class="product-price">
+                  <a href="/product/addtocart/<%= item._id %>">Buy Now</a>
+                </h4>
+              </div>
+            </div>
+            <% }) %> <% }%>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      const body = document.querySelector("body"),
+        sidebar = body.querySelector("nav"),
+        toggle = body.querySelector(".toggle"),
+        searchBtn = body.querySelector(".search-box"),
+        modeSwitch = body.querySelector(".toggle-switch"),
+        modeText = body.querySelector(".mode-text");
+      toggle.addEventListener("click", () => {
+        sidebar.classList.toggle("close");
+      });
+      searchBtn.addEventListener("click", () => {
+        sidebar.classList.remove("close");
+      });
+      modeSwitch.addEventListener("click", () => {
+        body.classList.toggle("dark");
+        if (body.classList.contains("dark")) {
+          modeText.innerText = "Light mode";
+        } else {
+          modeText.innerText = "Dark mode";
+        }
+      });
+    </script>
+  </body>
+</html>

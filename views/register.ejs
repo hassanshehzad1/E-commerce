@@ -1,0 +1,94 @@
+
+    <!-- Register form -->
+    <!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+        <link rel="stylesheet" href="/css/from.css" />
+     
+      </head>
+      <body>
+
+
+        <!-- Form registration -->
+        <div class="container">
+          <!-- Title section -->
+          <div class="title">Registration</div>
+          <div class="content">
+            <!-- Registration form -->
+            <form action="/user/register" method="post">
+              <div class="user-details">
+                <!-- Input for Full Name -->
+                <div class="input-box">
+                  <span class="details">Full Name</span>
+                  <input
+                    type="text"
+                    placeholder="Enter your name"
+                    required
+                    name="fullname"
+                  />
+                </div>
+                <!-- Input for Username -->
+                <div class="input-box">
+                  <span class="details">Age</span>
+                  <input
+                    type="Number"
+                    placeholder="Enter your Age"
+                    required
+                    name="age"
+                  />
+                </div>
+                <!-- Input for Email -->
+                <div class="input-box">
+                  <span class="details">Email</span>
+                  <input
+                    type="text"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                  />
+                </div>
+                <!-- Input for Phone Number -->
+                <div class="input-box">
+                  <span class="details">Phone Number</span>
+                  <input
+                    type="number"
+                    placeholder="Enter your number"
+                    required
+                    name="tel"
+                  />
+                </div>
+                <!-- Input for Password -->
+                <div class="input-box">
+                  <span class="details">Password</span>
+                  <input
+                    type="text"
+                    placeholder="Enter your password"
+                    required
+                    name="password"
+                  />
+                </div>
+                <!-- Input for Confirm Password -->
+                <div class="input-box">
+                  <span class="details">Birth date</span>
+                  <input
+                    type="text"
+                    placeholder="Confirm your password"
+                    required
+                    name="dob"
+                  />
+                </div>
+              </div>
+              <!-- Submit button -->
+              <div class="button">
+                <input type="submit" value="Register" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </body>
+    </html>
+  </body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en">
+  <title>shops</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="/css/side.css" />
+    <link rel="stylesheet" href="/css/cards.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!----===== Boxicons CSS ===== -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+  
+  </head>
+
+  <body>
+    
+    <nav class="sidebar close">
+      <header>
+        <div class="image-text">
+          <span class="image">
+            <img src="logo.png" alt="" />
+          </span>
+
+          <div class="text logo-text">
+            <span class="name">AB Store</span>
+            <span class="profession">Buy what you want</span>
+          </div>
+        </div>
+
+        <i class="bx bx-chevron-right toggle"></i>
+      </header>
+
+      <div class="menu-bar">
+        <div class="menu">
+          <li class="search-box">
+            <i class="bx bx-search icon"></i>
+            <input type="text" placeholder="Search Products..." />
+          </li>
+
+          <ul class="menu-links">
+            <li class="nav-link">
+              <a href="/index/shop">
+                <i class="bx bx-home-alt icon"></i>
+                <span class="text nav-text">Products</span>
+              </a>
+            </li>
+
+            <li class="nav-link">
+              <a href="/index/cart">
+                <i class="bx bx-bar-chart-alt-2 icon"></i>
+                <span class="text nav-text">Cart</span>
+              </a>
+            </li>
+
+            <li class="nav-link">
+              <a href="/index/like">
+                <i class="bx bx-heart icon"></i>
+                <span class="text nav-text">Likes</span>
+              </a>
+            </li>
+
+            <li class="nav-link">
+              <a href="#">
+                <i class="bx bx-wallet icon"></i>
+                <span class="text nav-text">Wallets</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bottom-content">
+          <li class="">
+            <a href="/user/logout">
+              <i class="bx bx-log-out icon"></i>
+              <span class="text nav-text">Logout</span>
+            </a>
+          </li>
+
+          <li class="mode">
+            <div class="sun-moon">
+              <i class="bx bx-moon icon moon"></i>
+              <i class="bx bx-sun icon sun"></i>
+            </div>
+            <span class="mode-text text">Dark mode</span>
+
+            <div class="toggle-switch">
+              <span class="switch"></span>
+            </div>
+          </li>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- Success message -->
+    <% if (successMessage && successMessage.length > 0) { %>
+   
+      <div class="col-sm-12 top">
+        <div class="alert fade alert-simple alert-primary alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light brk-library-rendered rendered show" role="alert" data-brk-library="component__alert">
+          <button type="button" class="close font__size-18" data-dismiss="alert">
+            <span  aria-hidden="true"><i class="fa fa-times alertprimary"></i></span>
+            <span class="sr-only">Close</span>
+          </button>
+          <i class="start-icon fa fa-thumbs-up faa-bounce animated"></i>
+          <strong class="font__weight-semibold">Well Done</strong><%= successMessage%>
+        </div>
+        
+      </div>
+
+      <% } %>
+
+<!-- Error message -->
+<% if (errorMessage && errorMessage.length > 0) { %>
+  
+  <div class="alert top fade alert-simple alert-danger alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light brk-library-rendered rendered show" role="alert" data-brk-library="component__alert">
+    <button type="button" class="close font__size-18" data-dismiss="alert">
+            <span aria-hidden="true">
+              <i class="fa fa-times danger "></i>
+            </span>
+            <span class="sr-only">Close</span>
+          </button>
+    <i class="start-icon far fa-times-circle faa-pulse animated"></i>
+    <strong class="font__weight-semibold">Oh snap!</strong> <%=errorMessage%>
+  </div>
+</div>
+  <% } %>
+
+    <section class="home">
+      <div class="text">Products</div>
+      <div class="products">
+        <!-- Using for each -->
+        <div class="flex">
+        <%if(products){%> <% products.forEach(function(product){ %>
+      <!-- Pr -->
+          <!-- <div class="container">
+          <div class="card" style="background-color: <%= product.bgcolor %>">
+            <div class="imgBx">
+              <img
+                src="data:image/png;base64,<%= Buffer.from(product.image).toString('base64') %>"
+                alt="<%= product.name %>"
+              />
+            </div>
+
+            <div class="contentBx">
+              <h2><%= product.name %></h2>
+              <h3><%= product.brand %></h3>
+
+              <div class="size">
+                <h3>Price :</h3>
+                <span><%= product.price %></span>
+              </div>
+              <div class="color">
+                <h3>Discount:</h3>
+                <span><%= product.discountprice %></span>
+              </div>
+              <div class="color">
+                <span></span>
+              </div>
+              <a href="/product/addtocart/<%= product._id %>">Buy Now</a>
+            </div>
+          </div>
+        </div> -->
+      
+        <div class="container">
+          <div class="card" style="background-color: <%= product.bgcolor %>">
+            <div class="card-head">
+              <img
+              src="data:image/png;base64,<%= Buffer.from(product.image).toString('base64') %>"
+              alt="<%= product.name %>"
+            />
+              <div class="product-detail">
+                <h2><%= product.name %></h2> 
+              </div>
+              <span class="back-text">
+                      FAS
+                    </span>
+            </div>
+            <div class="card-body">
+              <div class="product-desc">
+                <span class="product-title">
+                        <b><%= product.name %></b>
+                        <span class="badge">
+                          New
+                        </span>
+                </span>
+                <span class="product-caption">
+                       <%= product.brand %>
+                      </span>
+                <span class="product-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star grey"></i>
+                      </span>
+              </div>
+              <div class="product-properties">
+                <span class="product-size">
+                        <h4>Size</h4>
+                        <ul class="ul-size">
+                          <li><a href="#">7</a></li>
+                          <li><a href="#">8</a></li>
+                          <li><a href="#">9</a></li>
+                         </ul>
+                         <a href="/product/addtolike/<%= product._id %>"><i class="fa-regular fa-heart"> </i></a> 
+                      </span>
+                    <div class="productprice">
+                       <h2>Price:  <%= product.price %></h2>
+                       <h2>Discount-Price:  <%= product.discountprice %></h2>
+                    </div>
+                    <div class="get">
+                      <a href="/product/addtocart/<%= product._id %>">Buy Now</a>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+        
+    
+        <% }) %> <%} else { %>
+          <h1>Nothing to show</h1>
+          <% } %>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const body = document.querySelector("body"),
+        sidebar = body.querySelector("nav"),
+        toggle = body.querySelector(".toggle"),
+        searchBtn = body.querySelector(".search-box"),
+        modeSwitch = body.querySelector(".toggle-switch"),
+        modeText = body.querySelector(".mode-text");
+      toggle.addEventListener("click", () => {
+        sidebar.classList.toggle("close");
+      });
+      searchBtn.addEventListener("click", () => {
+        sidebar.classList.remove("close");
+      });
+      modeSwitch.addEventListener("click", () => {
+        body.classList.toggle("dark");
+        if (body.classList.contains("dark")) {
+          modeText.innerText = "Light mode";
+        } else {
+          modeText.innerText = "Dark mode";
+        }
+      });
+    </script>
+  </body>
+</html>
